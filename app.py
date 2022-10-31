@@ -10,6 +10,8 @@ connection = mysql.connector.connect(user="me",
 cursor = connection.cursor()
 cursor.execute("use EUManagementsystem;")
 
+prev_query = "None"
+
 
 @app.route('/',methods= ['GET'])
 def index():  # put application's code here
@@ -22,15 +24,21 @@ def index():  # put application's code here
 @app.route('/inp', methods=['GET', 'POST'])
 def que_exec():
     if request.method == "POST":
-        query = request.form["query"]
+        tempo = request.form["query"]
+        query = tempo
         cursor.execute(query)
         values = cursor.fetchall()
         que = values
         que = str(que)
         x = que.split("), (")
-        return render_template("input.html", data = x)
+        return render_template("input.html", data = x, Qp=tempo)
     else:
-        return render_template("input.html", data = [])
+        return render_template("input.html", data = [],Qp = prev_query)
+
+
+@app.route('/trial',methods=['GET', 'POST'])
+def run_rec():
+    render_template("/react-comp/public/index.html")
 
 
 if __name__ == '__main__':

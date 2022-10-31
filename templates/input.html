@@ -5,37 +5,42 @@
     <title>QueryExecutor</title>
 </head>
 <script src="https://cdn.tailwindcss.com"></script>
-<body class="font-bold ">
-    <button onclick="window.location='/';" class = "py-2 px-4 text-violet-700 rounded-full font-semibold bg-violet-50 hover:bg-violet-800 hover:text-violet-50" value="click here" >
+<script src="https://unpkg.com/react@16/umd/react.development.js"></script>
+<script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
+<script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
+<body class="font-mono font-bold bg-gray-100">
+    <button onclick="window.location='/';" class = "py-2 px-4 text-violet-700 rounded-full font-semibold bg-violet-200 hover:bg-violet-800 hover:text-violet-50" value="click here" >
         Go Home
     </button>
     <br/>
     <br/>
     The available tables are:
-    <ul class="list-none hover:list-disc">
+    <ol class="list-none hover:list-disc">
         <li>Contributions</li>
         <li>Countries(CountryName,CountryID,JoinDate,Capital,HeadOfGovernment,GDPpercapita,PRIMARY KEY(CountryName,CountryID))</li>
         <li>Department</li>
         <li>Staff</li>
         <li>Treaties</li>
         <li>TreatyMake</li>
-    </ul>
+    </ol>
     <br/>
-    <form action="#" method = "post" onsubmit = "x.value = a.value">
-        <p>Type the query</p>
+    <form action="#" method = "post" onsubmit="">
+        <p class="underline-offset-8 ">Type the query:-</p>
         <br/>
-        <p><input type="text" class="focus:caret-pink-700" id = "a" name = "query" placeholder="select * from Staff;" required/></p>
+        <p><input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" id = "a" name = "query" placeholder="select * from Staff;" required/></p>
         <br/>
 
-        <p><input type="submit" class = "py-2 px-4 text-violet-700 rounded-full font-semibold bg-violet-50 hover:bg-violet-800 hover:text-violet-50" value = "Submit"/></p>
+        <p><input type="submit" class = "py-2 px-4 text-violet-700 rounded-full font-semibold bg-violet-200 hover:bg-violet-800 hover:text-violet-50" value = "Submit"/></p>
         <br/>
         <h3>
             <p>The Output will appear here<br/></p>
         </h3>
     <br/>
         <div class="bg-black-100 ">
-        <output name = "x" for = "query">
-        </output>
+        <div id="my-class">
+            <h1>Previous Query:- <p>{{ Qp }}</p></h1>
+        </div>
+        <br/>
         <output name = "out" for = "Submit">
             <table class="border-separate border border-violet-500 bg-slate-50 table-auto">
                 <thead>
@@ -64,5 +69,6 @@
         </output>
     </div>
     </form>
+
 </body>
 </html>
