@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>QueryExecutor</title>
+</head>
+<body>
+    <button onclick="window.location='/';" value="click here" >
+        Go Home
+    </button>
+    <br>
+    The available tables are:
+    <ol>
+        <li>Contributions</li>
+        <li>Countries(CountryName,CountryID,JoinDate,Capital,HeadOfGovernment,GDPpercapita,PRIMARY KEY(CountryName,CountryID))</li>
+        <li>Department</li>
+        <li>Staff</li>
+        <li>Treaties</li>
+        <li>TreatyMake</li>
+    </ol>
+    <form action="#" method = "post" onsubmit = "x.value = a.value">
+        <p>Type the query</p>
+        <p><input type="text" id = "a" name = "query"/></p>
+        <p><input type="submit" value = "submit"/></p>
+        <h3>
+            <p>The Output will appear here<br></p>
+        </h3>
+        <output name = "x" for = "query">
+        </output>
+        <output name = "out" for = "submit">
+            <table>
+                <thead>
+                    <tr>
+                        <th>
+
+                        </th>
+                        <th>
+
+                        </th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in data %}
+                        <tr>
+                            <td>
+                                {{i}}
+                            </td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </output>
+    </form>
+</body>
+</html>
