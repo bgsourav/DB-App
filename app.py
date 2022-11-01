@@ -9,7 +9,7 @@ connection = mysql.connector.connect(user="me",
                                          port=3306)
 cursor = connection.cursor()
 cursor.execute("use EUManagementsystem;")
-
+current_operation = "None"
 prev_query = "None"
 
 
@@ -39,6 +39,11 @@ def que_exec():
 @app.route('/tab1',methods = ['GET','POST'])
 def show_countries():
     return render_template("countries.html")
+
+
+@app.route('/tab2',methods = ['GET','POST'])
+def show_deps():
+    return render_template("departments.html")
 
 
 if __name__ == '__main__':
