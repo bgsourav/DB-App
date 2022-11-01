@@ -4,10 +4,29 @@
     <meta charset="UTF-8">
     <title>APP</title>
 </head>
-<body>
-    <button onclick="window.location = '/inp'" >
+<script src="https://cdn.tailwindcss.com"></script>
+<body class="font-mono font-bold bg-gray-100">
+    <button onclick="window.location = '/inp'" class="py-2 px-4 text-violet-700 rounded-full font-semibold bg-violet-50 hover:bg-violet-800 hover:text-violet-50">
         Go to QueryExecutor
     </button>
-    <h1></h1>
+    <h1>Main Page Welcome!!!</h1>
+    <div class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
+        <a href="/tab1" class="block py-2 px-4 w-full border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
+            Countries
+        </a>
+        <a href="#" class="block py-2 px-4 w-full border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
+            Departments
+        </a>
+        <a href="#" class="block py-2 px-4 w-full border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
+            Messages
+        </a>
+        <a href="#" class="block py-2 px-4 w-full rounded-b-lg cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
+            Download
+        </a>
+    </div>
+    <div>
+        {% block content %}
+        {% endblock %}
+    </div>
 </body>
 </html>

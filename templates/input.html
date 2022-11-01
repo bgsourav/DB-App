@@ -8,21 +8,23 @@
 <script src="https://unpkg.com/react@16/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
-<body class="font-mono font-bold bg-gray-100">
+<body class="font-mono text-lg font-bold bg-gray-100 px-2 py-2 border-red-500">
     <button onclick="window.location='/';" class = "py-2 px-4 text-violet-700 rounded-full font-semibold bg-violet-200 hover:bg-violet-800 hover:text-violet-50" value="click here" >
         Go Home
     </button>
     <br/>
     <br/>
-    The available tables are:
-    <ol class="list-none hover:list-disc">
+    <h1 class="mb-2 text-3xl font-bold text-gray-900 dark:text-gray-700">
+        The available tables are:
+    </h1>
+    <ul class="space-y-1 list-disc list-inside  text-gray-900 dark:text-gray-800 border-width-4px">
         <li>Contributions</li>
-        <li>Countries(CountryName,CountryID,JoinDate,Capital,HeadOfGovernment,GDPpercapita,PRIMARY KEY(CountryName,CountryID))</li>
+        <li>Countries having (CountryName,CountryID,JoinDate,Capital,HeadOfGovernment,GDPpercapita)</li>
         <li>Department</li>
         <li>Staff</li>
         <li>Treaties</li>
         <li>TreatyMake</li>
-    </ol>
+    </ul>
     <br/>
     <form action="#" method = "post" onsubmit="">
         <p class="underline-offset-8 ">Type the query:-</p>
