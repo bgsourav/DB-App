@@ -24,10 +24,14 @@ def index():  # put application's code here
 @app.route('/inp', methods=['GET', 'POST'])
 def que_exec():
     if request.method == "POST":
-        tempo = request.form["query"]
-        query = tempo
-        cursor.execute(query)
-        values = cursor.fetchall()
+        try:
+            tempo = request.form["query"]
+            query = tempo
+            cursor.execute(query)
+            values = cursor.fetchall()
+        except:
+            values = []
+            tempo = "Not a valid SQL statement Please Try again !!!!!"
         que = values
         que = str(que)
         x = que.split("), (")
