@@ -36,10 +36,10 @@ def que_exec():
         return render_template("input.html", data = [],Qp = prev_query)
 
 
-@app.route('/trial',methods=['GET', 'POST'])
-def run_rec():
-    render_template("/react-comp/public/index.html")
+@app.route('/tab1',methods = ['GET','POST'])
+def show_countries():
+    return render_template("countries.html")
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(DEBUG=True)
