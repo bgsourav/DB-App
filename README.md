@@ -1,2 +1,2 @@
 # DB-App
-![My-Image](Esses/ERD.png)
+![ERDiagram](Esses/ERD.png)
