@@ -9,9 +9,14 @@
 <script src="https://unpkg.com/react-dom@16/umd/react-dom.development.js"></script>
 <script src="https://unpkg.com/babel-standalone@6.15.0/babel.min.js"></script>
 <body class="font-mono text-lg font-bold bg-gray-100 px-2 py-2 border-red-500">
-    <button onclick="window.location='/';" class = "py-2 px-4 text-violet-700 rounded-full font-semibold bg-violet-200 hover:bg-violet-800 hover:text-violet-50" value="click here" >
+ <div class = "bg-violet-300 grid grid-cols-2 ">
+    <button onclick="window.location='/';" class = "py-2 px-4 text-violet-700 rounded-lg font-semibold bg-violet-200 hover:bg-violet-800 hover:text-violet-50" value="click here" >
         Go Home
     </button>
+    <button onclick="window.location='/inp';" class = "py-2 px-4 text-violet-700 rounded-lg font-semibold bg-violet-200 hover:bg-violet-800 hover:text-violet-50" value="click here" >
+        Reset
+    </button>
+ </div>
     <br/>
     <br/>
     <h1 class="mb-2 text-3xl font-bold text-gray-900 dark:text-gray-700">
@@ -26,7 +31,10 @@
         <li>TreatyMake</li>
     </ul>
     <br/>
-    <form action="#" method = "post" onsubmit="">
+
+
+    <form action="#" method = "post" class="grid grid-cols-4">
+        <div>
         <p class="underline-offset-8 ">Type the query:-</p>
         <br/>
         <p><input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" id = "a" name = "query" placeholder="select * from Staff;" required/></p>
@@ -34,14 +42,17 @@
 
         <p><input type="submit" class = "py-2 px-4 text-violet-700 rounded-full font-semibold bg-violet-200 hover:bg-violet-800 hover:text-violet-50" value = "Submit"/></p>
         <br/>
+         </div>
+        <div class="col-span-3">
         <h3>
             <p>The Output will appear here<br/></p>
         </h3>
+
     <br/>
-        <div class="bg-black-100 ">
-        <div id="my-class">
+
             <h1>Previous Query:- <p>{{ Qp }}</p></h1>
-        </div>
+        <br/>
+        <h1>Table :</h1>
         <br/>
         <output name = "out" for = "Submit">
             <table class="border-separate border border-violet-500 bg-slate-50 table-auto">
@@ -71,6 +82,5 @@
         </output>
     </div>
     </form>
-
 </body>
 </html>

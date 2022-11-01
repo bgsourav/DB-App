@@ -6,14 +6,19 @@
 </head>
 <script src="https://cdn.tailwindcss.com"></script>
 <body class="font-mono text-lg font-bold bg-gray-100 px-2 py-2">
-    <button onclick="window.location = '/inp'" class="py-2 px-4 text-violet-700 rounded-full font-semibold bg-violet-200 hover:bg-violet-800 hover:text-violet-50">
+ <div class = "bg-violet-300 grid grid-cols-2 ">
+    <button onclick="window.location = '/inp'" class="py-2 px-4 text-violet-700 rounded-lg font-semibold bg-violet-200 hover:bg-violet-800 hover:text-violet-50">
         Go to QueryExecutor
     </button>
-    <button onclick="window.location='/';" class = "py-2 px-4 text-violet-700 rounded-full font-semibold bg-violet-200 hover:bg-violet-800 hover:text-violet-50" value="click here" >
-        Go Home
+    <button onclick="window.location='/';" class = "py-2 px-4 text-violet-700 rounded-lg font-semibold bg-violet-200 hover:bg-violet-800 hover:text-violet-50" value="click here" >
+        Reset
     </button>
-    <h1>Main Page Welcome!!!</h1>
+</div>
     <br/>
+    <br/>
+    <h1>CRUD Operations on the Database European Union Management System</h1>
+    <br/>
+ <div class="grid grid-cols-2">
     <div class="w-48 text-sm font-medium text-gray-900 bg-white rounded-lg border border-gray-200 dark:bg-gray-700 dark:border-gray-600 dark:text-white">
         <a href="/tab1" class="block py-2 px-4 w-full border-b border-gray-200 cursor-pointer hover:bg-gray-100 hover:text-blue-700 focus:outline-none focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:border-gray-600 dark:hover:bg-gray-600 dark:hover:text-white dark:focus:ring-gray-500 dark:focus:text-white">
             Countries
@@ -32,5 +37,9 @@
         {% block content %}
         {% endblock %}
     </div>
+        {% block form %}
+
+        {% endblock %}
+ </div>
 </body>
 </html>
