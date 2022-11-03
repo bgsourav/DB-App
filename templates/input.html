@@ -18,7 +18,6 @@
     </button>
  </div>
     <br/>
-    <br/>
     <h1 class="mb-2 text-3xl font-bold text-gray-900 dark:text-gray-700">
         The available tables are:
     </h1>
@@ -55,11 +54,12 @@
         <h1>Table :</h1>
         <br/>
         <output name = "out" for = "Submit">
+            <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
             <table class="border-separate border border-violet-500 bg-slate-50 table-auto">
-                <thead>
+                <thead class = "bg-gray-400 whitespace-nowrap uppercase hover:text-white">
                     <tr>
                         {% for i in table_headers %}
-                        <th>
+                        <th class="py-2 px-2">
                             {{i}}
                         </th>
                         {% endfor %}
@@ -67,9 +67,9 @@
                 </thead>
                 <tbody>
                     {% for i in data %}
-                        <tr>
+                        <tr class="bg-violet-200 text-violet-800 border-b hover:bg-violet-50">
                         {% for j in i %}
-                            <td class="border-collapse border border-violet-700 ...">
+                            <td class="py-2 px-2 border-collapse border border-violet-700 ... ">
                                 {{j}}
                             </td>
                         {% endfor %}
@@ -77,6 +77,7 @@
                     {% endfor %}
                 </tbody>
             </table>
+            </div>
         </output>
     </div>
     </form>
