@@ -3,22 +3,15 @@ import mysql.connector
 
 app = Flask(__name__)
 
-connection = mysql.connector.connect(user="me",
-                                         password="1234",
-                                         host='127.0.0.1',
-                                         port=3306)
+connection = mysql.connector.connect(user="me",password="1234",host='127.0.0.1',port=3306)
 cursor = connection.cursor()
 cursor.execute("use EUManagementsystem;")
 current_operation = "None"
 prev_query = "None"
-# headers = []
 
 
 @app.route('/',methods= ['GET'])
-def index():  # put application's code here
-
-    # cursor.execute("select * from fare_details;")
-    # values = cursor.fetchall(
+def index():
     return render_template("main.html")
 
 
@@ -34,7 +27,8 @@ def que_exec():
             head = [i[0] for i in cursor.description]
         except:
             values = []
-            tempo = "Not a valid SQL statement Please Try again !!!!!"
+            tempo = "Invalid Input." \
+                    "Please Try again !!!!!"
             head = []
         que = values
         # que = str(que)
@@ -55,4 +49,4 @@ def show_deps():
 
 
 if __name__ == '__main__':
-    app.run(DEBUG=True)
+    app.run()

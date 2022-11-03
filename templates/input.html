@@ -54,12 +54,12 @@
         <h1>Table :</h1>
         <br/>
         <output name = "out" for = "Submit">
-            <div class="overflow-x-auto relative shadow-md sm:rounded-lg">
-            <table class="border-separate border border-violet-500 bg-slate-50 table-auto">
+            <div class="overflow-x-auto relative">
+            <table class="border-separate border border-violet-500 bg-slate-50 table-auto shadow-md sm:rounded-md">
                 <thead class = "bg-gray-400 whitespace-nowrap uppercase hover:text-white">
-                    <tr>
+                    <tr class="shadow-md sm:rounded-md">
                         {% for i in table_headers %}
-                        <th class="py-2 px-2">
+                        <th class="py-2 px-2 shadow-md sm:rounded-md">
                             {{i}}
                         </th>
                         {% endfor %}
@@ -67,9 +67,9 @@
                 </thead>
                 <tbody>
                     {% for i in data %}
-                        <tr class="bg-violet-200 text-violet-800 border-b hover:bg-violet-50">
+                        <tr class="bg-violet-200 text-violet-800 border-b shadow-md sm:rounded-sm hover:bg-violet-50">
                         {% for j in i %}
-                            <td class="py-2 px-2 border-collapse border border-violet-700 ... ">
+                            <td class="shadow-md sm:rounded-md py-2 px-2 border-collapse border border-violet-700">
                                 {{j}}
                             </td>
                         {% endfor %}
