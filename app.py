@@ -11,6 +11,7 @@ cursor = connection.cursor()
 cursor.execute("use EUManagementsystem;")
 current_operation = "None"
 prev_query = "None"
+# headers = []
 
 
 @app.route('/',methods= ['GET'])
@@ -29,15 +30,18 @@ def que_exec():
             query = tempo
             cursor.execute(query)
             values = cursor.fetchall()
+            print(type(values))
+            head = [i[0] for i in cursor.description]
         except:
             values = []
             tempo = "Not a valid SQL statement Please Try again !!!!!"
+            head = []
         que = values
-        que = str(que)
-        x = que.split("), (")
-        return render_template("input.html", data = x, Qp=tempo)
+        # que = str(que)
+        # x = que.split("), (")
+        return render_template("input.html", data = que, Qp=tempo,table_headers = head)
     else:
-        return render_template("input.html", data = [],Qp = prev_query)
+        return render_template("input.html", data = [],Qp = prev_query,table_headers = [])
 
 
 @app.route('/tab1',methods = ['GET','POST'])

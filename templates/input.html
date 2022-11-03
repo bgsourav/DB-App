@@ -58,23 +58,21 @@
             <table class="border-separate border border-violet-500 bg-slate-50 table-auto">
                 <thead>
                     <tr>
+                        {% for i in table_headers %}
                         <th>
-                            table name
+                            {{i}}
                         </th>
-                        <th>
-                            description
-                        </th>
+                        {% endfor %}
                     </tr>
                 </thead>
                 <tbody>
                     {% for i in data %}
                         <tr>
+                        {% for j in i %}
                             <td class="border-collapse border border-violet-700 ...">
-                                {{i[0]}}
+                                {{j}}
                             </td>
-                            <td class="border-collapse border border-violet-700 ...">
-                                {{i[1:]}}
-                            </td>
+                        {% endfor %}
                         </tr>
                     {% endfor %}
                 </tbody>
