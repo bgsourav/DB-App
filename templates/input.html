@@ -32,6 +32,7 @@
     <br/>
 
 
+
     <form action="#" method = "post" class="grid grid-cols-4">
         <div>
         <p class="underline-offset-8 ">Type the query:-</p>
@@ -79,6 +80,15 @@
             </table>
             </div>
         </output>
+        <div>
+         {% with messages = get_flashed_messages() %}
+     {% if messages %}
+         {% for i in messages %}
+             <p>{{ i }}</p>
+         {% endfor %}
+     {% endif %}
+ {% endwith %}
+        </div>
     </div>
     </form>
 </body>

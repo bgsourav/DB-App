@@ -1,4 +1,4 @@
-from flask import Flask,render_template,url_for,session,request,redirect
+from flask import Flask,render_template,url_for,session,request,redirect,flash
 import mysql.connector
 
 app = Flask(__name__)
@@ -18,6 +18,7 @@ def index():
 @app.route('/inp', methods=['GET', 'POST'])
 def que_exec():
     if request.method == "POST":
+        error = ""
         try:
             tempo = request.form["query"]
             query = tempo
@@ -25,13 +26,15 @@ def que_exec():
             values = cursor.fetchall()
             print(type(values))
             head = [i[0] for i in cursor.description]
-        except:
+        except mysql.connector.Error as e:
             values = []
             tempo = "Invalid Input." \
                     "Please Try again !!!!!"
+            flash(e,"info")
+            error = e
             head = []
         que = values
-        return render_template("input.html", data = que, Qp=tempo,table_headers = head)
+        return render_template("input.html", data = que, Qp=tempo,table_headers = head,err = error)
     else:
         return render_template("input.html", data = [],Qp = prev_query,table_headers = [])
 
