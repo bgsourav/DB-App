@@ -83,6 +83,9 @@
         <div>
          {% with messages = get_flashed_messages() %}
      {% if messages %}
+         <h3>An Error has occurred!</h3>
+         <br/>
+         <p>The message from the compiler is :</p>
          {% for i in messages %}
              <p>{{ i }}</p>
          {% endfor %}

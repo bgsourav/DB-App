@@ -28,8 +28,7 @@ def que_exec():
             head = [i[0] for i in cursor.description]
         except mysql.connector.Error as e:
             values = []
-            tempo = "Invalid Input." \
-                    "Please Try again !!!!!"
+            tempo = "Invalid Input."
             flash(e,"info")
             error = e
             head = []
