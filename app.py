@@ -23,12 +23,18 @@ def que_exec():
             tempo = request.form["query"]
             query = tempo
             cursor.execute(query)
+            if "insert" in query.lower():
+                connection.commit()
+            if "update" in query.lower():
+                connection.commit()
             values = cursor.fetchall()
             print(type(values))
             head = [i[0] for i in cursor.description]
         except mysql.connector.Error as e:
             values = []
             tempo = "Invalid Input."
+            if e == "No result set to fetch from.":
+                tempo = "The statement is not a select query."
             flash(e,"info")
             error = e
             head = []
@@ -83,7 +89,7 @@ def update_tabs():
         hog = request.form["HOG"]
         gdppc = request.form["GDPPC"]
         try:
-            cursor.execute(f'update Countries set CountryName = "{country_name}",JoinDate = "{date_of_join}",Capital ="{capital}",HeadOfGovernment="{hog}",GDPpercapita = {gdppc} where CountryID = {country_id_old}')
+            cursor.execute(f'update Countries set CountryName = "{country_name}",JoinDate = "{date_of_join}",Capital ="{capital}",HeadOfGovernment="{hog}",GDPpercapita = {gdppc} where CountryID = {country_id_old};')
             statement = "Successfully Inserted."
             connection.commit()
         except mysql.connector.Error as e:
@@ -97,9 +103,17 @@ def update_tabs():
 def show_del():
     status = ""
     if request.method == "POST":
-        render_template("deleteform.html",flag = status)
+        try:
+            todelid = request.form["country_id"]
+            tobedelname = request.form["country_name"]
+            cursor.execute(f'delete from Countries where CountryID = {todelid} and CountryName = "{tobedelname}";')
+            status = "Successfully Deleted Entry"
+            connection.commit()
+        except mysql.connector.Error as e:
+            status = e
+        return render_template("deleteform.html",flag = status)
     else:
-        render_template("deleteform.html", flag=status)
+        return render_template("deleteform.html", flag=status)
 
 
 if __name__ == '__main__':

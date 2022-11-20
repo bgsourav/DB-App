@@ -1,0 +1,14 @@
+{% extends "countries.html" %}
+{% block form %}
+    <form action="#" method="post" class="px-2 py-2 w-full">
+    <label for="country_id">Enter the ID of the country to delete the entry:</label><br/>
+    <input type="number" name="country_id" class = "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required/>
+    <br/>
+        <label for="country_name">Enter the Country Name:</label>
+        <br/>
+    <input type="text" class = "border-b shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" name="country_name" required placeholder = "Country Name:"/>
+    <br/><br/>
+        <input type="submit" class="px-2 py-2 text-violet-700 rounded-full font-semibold bg-violet-200 hover:bg-violet-800 hover:text-violet-50" value = "Submit"/>
+    </form>
+    <p>{{ flag }}</p>
+{% endblock %}
