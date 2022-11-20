@@ -2,7 +2,7 @@ from flask import Flask,render_template,url_for,session,request,redirect,flash
 import mysql.connector
 
 app = Flask(__name__)
-app.secret_key = "super secret key"
+app.secret_key = ""
 connection = mysql.connector.connect(user="me",password="1234",host='127.0.0.1',port=3306)
 cursor = connection.cursor()
 cursor.execute("use EUManagementsystem;")
