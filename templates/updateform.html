@@ -1,0 +1,32 @@
+{% extends "countries.html" %}
+{% block form %}
+    <h3>Updation of Countries Table</h3>
+    <form action="" method="post" class = "px-2 py-2 w-full">
+        <label for="country_id_old">Enter the Country ID whose info you want to Update:</label>
+        <br/>
+        <input type="number" class = "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required name="country_id_old" placeholder = "Country ID:"/>
+   <br/>
+    <label for="country_name">Enter the New Country Name:</label>
+        <br/>
+    <input type="text" class = "border-b shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" name="country_name" required placeholder = "Country Name:"/>
+<br/>
+    <label for="date">Enter the New Date:</label>
+        <br/>
+        <input type = "date" class = "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" name="date" required placeholder = "Date of Join:"/>
+    <br/>
+        <label for="capital">Enter the New Capital City of the Country:</label>
+        <br/>
+        <input type="text" class = "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" name="capital" required placeholder = "Capital City:"/>
+<br/>
+    <label for="HOG">Enter the New Head of Government of the Country:</label>
+        <br/>
+        <input type="text" class = "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" name="HOG" required placeholder = "Head of Government:"/>
+<br/>
+        <label for="GDPPC">Enter the New GDP per capita of the Country:</label>
+        <br/>
+        <input type = "number" class = "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" name="GDPPC" required placeholder = "GDP per capita:"/>
+<br/><br/>
+    <input type="submit" class = "px-2 py-2 text-violet-700 rounded-full font-semibold bg-violet-200 hover:bg-violet-800 hover:text-violet-50" value = "Submit"/><br/>
+    </form>
+    <p>{{ flag }}</p>
+{% endblock %}
