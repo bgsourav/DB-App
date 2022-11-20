@@ -1,12 +1,34 @@
-{% extends "main.html" %}
+{% extends "countries.html" %}
 {% block form %}
-    <form>
-    <input type="text" value={{count}} disabled class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light
-      focus:outline-none focus:border-sky-500 focus:ring-1 focus:ring-sky-500
-      disabled:bg-violet-700 disabled:text-white disabled:border-slate-200 disabled:shadow-none
-      invalid:border-pink-500 invalid:text-pink-600
-      focus:invalid:border-pink-500 focus:invalid:ring-pink-500
-    "/>
-     <input type="text" class="shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" id = "a" name = "query" placeholder="" required/></p>
+    <h3>Insertion into Countries Table</h3>
+    <form action="" method="post" class = "px-2 py-2 w-full">
+    <label for="country_name">Enter the Country Name:</label>
+        <br/>
+    <input type="text" class = "border-b shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" name="country_name" required placeholder = "Country Name:"/>
+<br/>
+    <label for="country_id">Enter the Country ID:</label>
+        <br/>
+        <input type="number" class = "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" required name="country_id" placeholder = "Country ID:"/>
+        <br/>
+    <label for="date">Enter the Date the Country Joined the EU:</label>
+        <br/>
+        <input type = "date" class = "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" name="date" required placeholder = "Date of Join:"/>
+    <br/>
+        <label for="capital">Enter the Capital City of the Country:</label>
+        <br/>
+        <input type="text" class = "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" name="capital" required placeholder = "Capital City:"/>
+<br/>
+    <label for="HOG">Enter the Head of Government of the Country:</label>
+        <br/>
+        <input type="text" class = "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" name="HOG" required placeholder = "Head of Government:"/>
+<br/>
+        <label for="GDPPC">Enter the GDP per capita of the Country:</label>
+        <br/>
+        <input type = "number" class = "shadow-sm bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 dark:bg-violet-100 dark:border-violet-800 dark:placeholder-gray-400 dark:text-violet dark:focus:ring-blue-500 dark:focus:border-blue-500 dark:shadow-sm-light" name="GDPPC" required placeholder = "GDP per capita:"/>
+<br/><br/>
+    <input type="submit" class = "px-2 py-2 text-violet-700 rounded-full font-semibold bg-violet-200 hover:bg-violet-800 hover:text-violet-50" value = "Submit"/><br/>
     </form>
+    <p>
+    {{ count }}
+    </p>
 {% endblock %}

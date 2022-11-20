@@ -52,7 +52,54 @@ def show_deps():
 
 @app.route('/ins',methods = ['GET','POST'])
 def show_ins():
-    return render_template("insertform.html",count = session["table"])
+    statement = ""
+    if request.method == "POST":
+        country_name = request.form["country_name"]
+        country_id = request.form["country_id"]
+        date_of_join = request.form["date"]
+        capital = request.form["capital"]
+        hog = request.form["HOG"]
+        gdppc = request.form["GDPPC"]
+        statement = ""
+        try:
+            cursor.execute(f'insert into Countries values("{country_name}",{country_id},"{date_of_join}","{capital}","{hog}",{gdppc});')
+            statement = "Successfully inserted values into the table"
+            connection.commit()
+        except mysql.connector.Error as e:
+            statement = "Error " + e
+        return render_template("insertform.html", count=statement)
+    else:
+        return render_template("insertform.html",count = statement)
+
+
+@app.route('/upd',methods = ['GET','POST'])
+def update_tabs():
+    statement = ""
+    if request.method == "POST":
+        country_name = request.form["country_name"]
+        country_id_old = request.form["country_id_old"]
+        date_of_join = request.form["date"]
+        capital = request.form["capital"]
+        hog = request.form["HOG"]
+        gdppc = request.form["GDPPC"]
+        try:
+            cursor.execute(f'update Countries set CountryName = "{country_name}",JoinDate = "{date_of_join}",Capital ="{capital}",HeadOfGovernment="{hog}",GDPpercapita = {gdppc} where CountryID = {country_id_old}')
+            statement = "Successfully Inserted."
+            connection.commit()
+        except mysql.connector.Error as e:
+            statement = e
+        return render_template("updateform.html",flag = statement)
+    else:
+        return render_template("updateform.html",flag = statement)
+
+
+@app.route('/del',methods = ['GET','POST'])
+def show_del():
+    status = ""
+    if request.method == "POST":
+        render_template("deleteform.html",flag = status)
+    else:
+        render_template("deleteform.html", flag=status)
 
 
 if __name__ == '__main__':
