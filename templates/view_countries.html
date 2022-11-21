@@ -1,0 +1,27 @@
+{% extends "countries.html" %}
+{% block form %}
+    <div class=" grid col-span-4">
+            <table class="border-separate border border-violet-500 bg-slate-50 table-auto shadow-md sm:rounded-md">
+                <thead class = "bg-gray-400 whitespace-nowrap uppercase hover:text-white">
+                    <tr class="shadow-md sm:rounded-md">
+                        {% for i in table_headers %}
+                        <th class="py-2 px-2 shadow-md sm:rounded-md">
+                            {{i}}
+                        </th>
+                        {% endfor %}
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for i in data %}
+                        <tr class="bg-violet-200 text-violet-800 border-b shadow-md sm:rounded-sm hover:bg-violet-50">
+                        {% for j in i %}
+                            <td class="shadow-md sm:rounded-md py-2 px-2 border-collapse border border-violet-700">
+                                {{j}}
+                            </td>
+                        {% endfor %}
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+            </div>
+{% endblock %}

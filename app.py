@@ -116,6 +116,14 @@ def show_del():
         return render_template("deleteform.html", flag=status)
 
 
+@app.route('/vi',methods = ['GET','POST'])
+def show_countries_table():
+    cursor.execute("select * from Countries;")
+    ans = cursor.fetchall()
+    head = [i[0] for i in cursor.description]
+    return render_template("view_countries.html",data = ans,table_headers = head)
+
+
 if __name__ == '__main__':
     app.debug = True
     app.run()
